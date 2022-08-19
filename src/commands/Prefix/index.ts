@@ -17,7 +17,7 @@ const CommandHandler = (client: Client, args: string[], message: Message) => {
     }
 
     if(newPrefix.length > 3) {
-        return message.reply("Please use a prefix 3 or less characters.")
+        return message.reply("Please use a prefix with 3 or less characters.")
     }
 
     if(GuildData.prefix === newPrefix) {
