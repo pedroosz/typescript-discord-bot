@@ -1,5 +1,6 @@
 import { Client, Message } from "discord.js"
 import { Commands } from "../utils/commands";
+import { isInCooldown, setCooldown } from "../utils/cooldowns";
 import { database, GuildDefaultData, UserDefaultData } from "../utils/database";
 import { EventOptions } from "../utils/events"
 
@@ -25,6 +26,12 @@ const EventHandler = async (client: Client, message: Message) => {
     let CommandFile = Commands.get(command.slice(GuildData.prefix.length));
 
     if(!CommandFile) return;
+
+    if(isInCooldown(message.author.id, CommandFile.CommandInfo.name)) {
+        return;
+    }
+
+    setCooldown(message.author.id, CommandFile.CommandInfo.name);
 
     CommandFile.CommandInfo.handler(client, args, message);
 }
