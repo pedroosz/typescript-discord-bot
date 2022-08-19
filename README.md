@@ -12,7 +12,7 @@ it is a **simple** discord bot made with **typescript**, using **enmap** as data
 ```
 git clone https://github.com/ppszm/typescript-discord-bot.git
 cd typescript-discord-bot
-npm install (or yarn add)
+npm install (or yarn install)
 ```
 
 After the installation, follow the **configuration steps** and then run `npm run start` or `npm run dev` for restart on save.
